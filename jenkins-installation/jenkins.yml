@@ -1,0 +1,15 @@
+- hosts: localhost
+  become: true
+  
+  vars:
+    jenkins_admin_username: admin
+    jenkins_admin_password: tidax
+    jenkins_plugins:
+      - blueocean
+      - jacoco
+    java_packages:
+      - java-1.8.0-openjdk
+
+  roles:
+    - role: geerlingguy.java
+    - role: geerlingguy.jenkins
