@@ -25,4 +25,4 @@
       name: job_maven
       url: http://localhost:8080
       user: admin
-      password: admin
+      password: tidax
