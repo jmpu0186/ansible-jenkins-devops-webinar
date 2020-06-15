@@ -8,7 +8,7 @@
   </properties>
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.80">
     <script>node {
-  stage(&apos;Descarga Fuente&apos;) { // for display purposes
+  stage(&apos;descargar fuente&apos;) { // for display purposes
         git &apos;https://github.com/jmpu0186/devopsdemo.git&apos;
    }
     stage(&apos;clean&apos;) { // for display purposes
