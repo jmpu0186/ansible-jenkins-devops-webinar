@@ -7,6 +7,7 @@
     jenkins_plugins:
       - blueocean
       - jacoco
+      - performance
     java_packages:
       - java-1.8.0-openjdk
 
