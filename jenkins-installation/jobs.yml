@@ -23,6 +23,6 @@
   - jenkins_job:
       config: "{{ lookup('file', 'jobs/jobmaven.xml') }}"
       name: job_maven
-      url: http://localhost:8080
+      url: http://localhost
       user: admin
       password: tidax
