@@ -2,7 +2,6 @@
   become: true
   
   vars:
-    jenkins_http_port: 80
     jenkins_admin_username: admin
     jenkins_admin_password: tidax
     jenkins_plugins:
