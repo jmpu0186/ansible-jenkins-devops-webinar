@@ -1,10 +1,10 @@
 <?xml version='1.1' encoding='UTF-8'?>
-<flow-definition plugin="workflow-job@2.38">
+<flow-definition plugin="workflow-job@2.39">
   <actions/>
   <description>JOBMAVEN</description>
   <keepDependencies>false</keepDependencies>
   <properties>
-    <hudson.plugins.jira.JiraProjectProperty plugin="jira@3.0.15"/>
+    <hudson.plugins.jira.JiraProjectProperty plugin="jira@3.1.0"/>
   </properties>
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.80">
     <script>node {
@@ -29,6 +29,18 @@
                     sh &apos;mvn package -DskipTests -Ddockerfile.skip&apos;
         }
     }
+
+	stage (&quot;buildimage&quot;) {
+	sh &quot;docker build -t demodevops:${env.BUILD_ID} -f ${WORKSPACE}/Dockerfile .&quot;
+    }
+    
+    stage (&quot;pruebas funcionales&quot;){
+		 		
+			    	sh &quot;docker run --name=demodevops --network=esnet --env APP_VERSION=${env.BUILD_ID} -p 8081:8080 -d demodevops:${env.BUILD_ID}&quot;
+					build job: &apos;jmetter-demo&apos;
+					sh &quot;docker stop demodevops&quot;
+				    sh &apos;docker rm $(docker ps -aq --filter name=demodevops)&apos;
+		    }
 }</script>
     <sandbox>true</sandbox>
   </definition>
