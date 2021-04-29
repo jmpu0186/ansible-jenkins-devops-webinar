@@ -3,7 +3,7 @@
   
   vars:
     jenkins_admin_username: admin
-    jenkins_admin_password: tidax
+    jenkins_admin_password: avantica
     jenkins_plugins:
       - blueocean
       - jacoco
