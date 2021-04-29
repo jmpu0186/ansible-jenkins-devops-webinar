@@ -1,9 +1,5 @@
 - hosts: localhost
   tasks:
-  - name: Create a network docker
-    docker_network:
-      name: esnet
-    
   - name: Wait untils Jenkins web API is available
     shell: curl --head --silent http://localhost:8080/cli/
     register: result
@@ -29,11 +25,11 @@
       name: job_maven
       url: http://localhost:8080
       user: admin
-      password: tidax
+      password: avantica
       
   - jenkins_job:
       config: "{{ lookup('file', 'jobs/jmeter.xml') }}"
       name: jmetter-demo
       url: http://localhost:8080
       user: admin
-      password: tidax
+      password: avantica
